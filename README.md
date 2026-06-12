@@ -104,6 +104,15 @@ Rules that encode path or alias assumptions accept options so they work in any p
 | `configs.recommended` | Built-in ESLint rules + all custom rules at `error` |
 | `configs.react` | `recommended` + `eslint-plugin-react` + `eslint-plugin-react-hooks` |
 
+## Development
+
+Run the rule tests (ESLint's `RuleTester` on Node's built-in test runner):
+
+```sh
+npm install
+npm test
+```
+
 ## License
 
 MIT

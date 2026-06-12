@@ -13,7 +13,7 @@
     "utils"
   ],
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+    "test": "node --test"
   },
   "keywords": [
     "eslint",
