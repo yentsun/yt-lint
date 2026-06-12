@@ -66,7 +66,7 @@ const BUILTIN_RULES = {
 };
 
 const CUSTOM_RULES = Object.fromEntries(
-    Object.keys(rules).map(name => [ `yt-lint/${name}`, 'warn' ])
+    Object.keys(rules).map(name => [ `yt-lint/${name}`, 'error' ])
 );
 
 const recommended = {

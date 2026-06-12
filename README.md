@@ -101,7 +101,7 @@ Rules that encode path or alias assumptions accept options so they work in any p
 
 | Config | Description |
 |--------|-------------|
-| `configs.recommended` | Built-in ESLint rules + all custom rules at `warn` |
+| `configs.recommended` | Built-in ESLint rules + all custom rules at `error` |
 | `configs.react` | `recommended` + `eslint-plugin-react` + `eslint-plugin-react-hooks` |
 
 ## License
