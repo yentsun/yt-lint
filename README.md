@@ -1,11 +1,11 @@
-# yt-lint
+# @yentsun/lint
 
 An opinionated ESLint plugin with custom style and correctness rules for JS/React projects. A couple of rules add support for codebases split into packages or multiple runtime targets, but the plugin works in any project.
 
 ## Installation
 
 ```sh
-npm install --save-dev yt-lint eslint eslint-plugin-react eslint-plugin-react-hooks
+npm install --save-dev @yentsun/lint eslint eslint-plugin-react eslint-plugin-react-hooks
 ```
 
 Requires ESLint 9+ (flat config).
@@ -16,7 +16,7 @@ Requires ESLint 9+ (flat config).
 
 ```js
 // eslint.config.js
-import ytLint from 'yt-lint';
+import ytLint from '@yentsun/lint';
 
 export default [
   ytLint.configs.recommended,
@@ -26,7 +26,7 @@ export default [
 **React projects** — everything above + React plugin rules:
 
 ```js
-import ytLint from 'yt-lint';
+import ytLint from '@yentsun/lint';
 
 export default [
   ...ytLint.configs.react,
@@ -36,14 +36,14 @@ export default [
 Or enable individual rules:
 
 ```js
-import ytLint from 'yt-lint';
+import ytLint from '@yentsun/lint';
 
 export default [
   {
-    plugins: { 'yt-lint': ytLint },
+    plugins: { '@yentsun/lint': ytLint },
     rules: {
-      'yt-lint/no-unused': 'error',
-      'yt-lint/two-blank-lines-after-imports': 'warn',
+      '@yentsun/lint/no-unused': 'error',
+      '@yentsun/lint/two-blank-lines-after-imports': 'warn',
     },
   },
 ];

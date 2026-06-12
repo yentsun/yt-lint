@@ -71,11 +71,11 @@ const BUILTIN_RULES = {
 };
 
 const CUSTOM_RULES = Object.fromEntries(
-    Object.keys(rules).map(name => [ `yt-lint/${name}`, 'error' ])
+    Object.keys(rules).map(name => [ `@yentsun/lint/${name}`, 'error' ])
 );
 
 const recommended = {
-    plugins: { 'yt-lint': plugin },
+    plugins: { '@yentsun/lint': plugin },
     rules: {
         ...BUILTIN_RULES,
         ...CUSTOM_RULES,

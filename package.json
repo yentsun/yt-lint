@@ -1,5 +1,5 @@
 {
-  "name": "yt-lint",
+  "name": "@yentsun/lint",
   "version": "0.1.0",
   "description": "Opinionated ESLint plugin with custom style and correctness rules for JS/React projects",
   "type": "module",
@@ -26,12 +26,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yentsun/yt-lint.git"
+    "url": "git+https://github.com/yentsun/lint.git"
   },
   "bugs": {
-    "url": "https://github.com/yentsun/yt-lint/issues"
+    "url": "https://github.com/yentsun/lint/issues"
   },
-  "homepage": "https://github.com/yentsun/yt-lint#readme",
+  "homepage": "https://github.com/yentsun/lint#readme",
   "engines": {
     "node": ">=20"
   },

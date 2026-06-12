@@ -1,13 +1,13 @@
 // eslint.config.js excerpt that activates this ruleset:
 //
-//   import ytLint from 'yt-lint';
+//   import ytLint from '@yentsun/lint';
 //   export default [
 //     {
 //       ...ytLint.configs.recommended,
 //       rules: {
 //         ...ytLint.configs.recommended.rules,
-//         'yt-lint/import-general-to-specific': ['warn', { internalAliases: ['acme'] }],
-//         'yt-lint/no-process-exit-outside-cli': ['warn', { allowedProcessExitGlobs: ['packages/cli/**'] }],
+//         '@yentsun/lint/import-general-to-specific': ['warn', { internalAliases: ['acme'] }],
+//         '@yentsun/lint/no-process-exit-outside-cli': ['warn', { allowedProcessExitGlobs: ['packages/cli/**'] }],
 //       },
 //     },
 //   ];
