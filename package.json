@@ -1,7 +1,7 @@
 {
   "name": "yt-lint",
   "version": "0.1.0",
-  "description": "ESLint plugin with custom rules for JS/React monorepos",
+  "description": "Opinionated ESLint plugin with custom style and correctness rules for JS/React projects",
   "type": "module",
   "main": "index.js",
   "exports": {
@@ -20,8 +20,7 @@
     "eslint-plugin",
     "lint",
     "javascript",
-    "react",
-    "monorepo"
+    "react"
   ],
   "author": "Maksim Korinets",
   "license": "MIT",

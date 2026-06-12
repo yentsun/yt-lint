@@ -1,6 +1,6 @@
 # yt-lint
 
-An ESLint plugin with custom rules for JS/React monorepos.
+An opinionated ESLint plugin with custom style and correctness rules for JS/React projects. A couple of rules add support for codebases split into packages or multiple runtime targets, but the plugin works in any project.
 
 ## Installation
 
@@ -90,7 +90,7 @@ export default [
 
 ## Configurable options
 
-Rules that encode path or alias assumptions accept options so they work outside any specific monorepo:
+Rules that encode path or alias assumptions accept options so they work in any project layout:
 
 - `internalAliases` — list of bare import aliases treated as internal (e.g. `["backend", "shared"]`).
 - `packageRootPattern` — glob identifying package roots (default: `packages/*`).
