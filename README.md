@@ -5,12 +5,14 @@ An ESLint plugin with custom rules for JS/React monorepos.
 ## Installation
 
 ```sh
-npm install --save-dev yt-lint eslint
+npm install --save-dev yt-lint eslint eslint-plugin-react eslint-plugin-react-hooks
 ```
 
 Requires ESLint 9+ (flat config).
 
 ## Usage
+
+**JS / Node projects** — built-in rules + all custom rules:
 
 ```js
 // eslint.config.js
@@ -18,6 +20,16 @@ import ytLint from 'yt-lint';
 
 export default [
   ytLint.configs.recommended,
+];
+```
+
+**React projects** — everything above + React plugin rules:
+
+```js
+import ytLint from 'yt-lint';
+
+export default [
+  ...ytLint.configs.react,
 ];
 ```
 
@@ -53,7 +65,7 @@ export default [
 
 | Rule | Description | Options |
 |------|-------------|---------|
-| `import-general-to-specific` | Import ordering by source category with alphabetical fallback | `internalAliases`, `packageRootPattern` |
+| `import-general-to-specific` | Import ordering by source category with alphabetical fallback | `internalAliases` |
 | `no-relative-cross-package-imports` | Disallow relative imports that cross package boundaries | `packageRootPattern` |
 
 ### Variables & exports
@@ -80,8 +92,8 @@ export default [
 
 Rules that encode path or alias assumptions accept options so they work outside any specific monorepo:
 
-- `packageRootPattern` — glob identifying package roots (default: `packages/*`).
 - `internalAliases` — list of bare import aliases treated as internal (e.g. `["backend", "shared"]`).
+- `packageRootPattern` — glob identifying package roots (default: `packages/*`).
 - `allowedProcessExitGlobs` — globs where `process.exit` is permitted.
 - `browserCodeGlobs` — globs that define browser-only code boundaries.
 
@@ -89,7 +101,8 @@ Rules that encode path or alias assumptions accept options so they work outside 
 
 | Config | Description |
 |--------|-------------|
-| `configs.recommended` | All rules at `warn` level, no project-specific paths |
+| `configs.recommended` | Built-in ESLint rules + all custom rules at `warn` |
+| `configs.react` | `recommended` + `eslint-plugin-react` + `eslint-plugin-react-hooks` |
 
 ## License
 

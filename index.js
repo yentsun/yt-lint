@@ -1,3 +1,6 @@
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+
 import importGeneralToSpecific from './rules/import-general-to-specific.js';
 import objectCurlySpacing from './rules/object-curly-spacing.js';
 import twoBlankLinesAfterImports from './rules/two-blank-lines-after-imports.js';
@@ -29,11 +32,75 @@ const rules = {
 
 const plugin = { rules };
 
-const recommended = {
-    plugins: { 'yt-lint': plugin },
-    rules: Object.fromEntries(
-        Object.keys(rules).map(name => [ `yt-lint/${name}`, 'warn' ])
-    ),
+const BUILTIN_RULES = {
+    'indent': [ 'error', 4, { SwitchCase: 1 } ],
+    'quotes': [ 'error', 'single', { avoidEscape: true } ],
+    'jsx-quotes': [ 'error', 'prefer-double' ],
+    'eqeqeq': [ 'error', 'smart' ],
+    'array-bracket-spacing': [ 'error', 'always' ],
+    'no-tabs': 'error',
+    'no-debugger': 'error',
+    'no-empty-pattern': 'error',
+    'no-implied-eval': 'error',
+    'no-new-wrappers': 'error',
+    'no-object-constructor': 'error',
+    'no-promise-executor-return': 'error',
+    'no-self-compare': 'error',
+    'no-template-curly-in-string': 'error',
+    'no-throw-literal': 'error',
+    'no-unreachable-loop': 'error',
+    'no-constant-binary-expression': 'error',
+    'no-undef': 'error',
+    'use-isnan': 'error',
+    'valid-typeof': 'error',
+    'array-callback-return': 'error',
+    'default-case-last': 'error',
+    'prefer-object-has-own': 'error',
+    'no-unused-vars': [ 'error', {
+        argsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_',
+        ignoreRestSiblings: true,
+        varsIgnorePattern: '^React$',
+    } ],
 };
 
-export default { rules, configs: { recommended } };
+const CUSTOM_RULES = Object.fromEntries(
+    Object.keys(rules).map(name => [ `yt-lint/${name}`, 'warn' ])
+);
+
+const recommended = {
+    plugins: { 'yt-lint': plugin },
+    rules: {
+        ...BUILTIN_RULES,
+        ...CUSTOM_RULES,
+    },
+};
+
+const react = [
+    recommended,
+    {
+        plugins: {
+            react: reactPlugin,
+            'react-hooks': reactHooksPlugin,
+        },
+        settings: {
+            react: { version: 'detect' },
+        },
+        rules: {
+            'react/display-name': 'off',
+            'react/react-in-jsx-scope': 'off',
+            'react/prop-types': 'off',
+            'react/no-unescaped-entities': 'off',
+            'react/jsx-uses-vars': 'error',
+            'react/no-multi-comp': 'error',
+            'react/jsx-no-useless-fragment': 'error',
+            'react/jsx-curly-spacing': [ 'error', { when: 'always', children: true } ],
+            'react/self-closing-comp': 'error',
+            'react-hooks/rules-of-hooks': 'error',
+            'react-hooks/exhaustive-deps': 'error',
+        },
+    },
+];
+
+export default { rules, configs: { recommended, react } };
