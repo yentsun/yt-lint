@@ -1,3 +1,5 @@
+import { createRequire } from 'node:module';
+
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 
@@ -30,7 +32,10 @@ const rules = {
     'no-nodejs-builtins-in-webapp': noNodejsBuiltinsInWebapp,
 };
 
-const plugin = { rules };
+const pkg = createRequire(import.meta.url)('./package.json');
+const meta = { name: pkg.name, version: pkg.version };
+
+const plugin = { meta, rules };
 
 const BUILTIN_RULES = {
     'indent': [ 'error', 4, { SwitchCase: 1 } ],
@@ -103,4 +108,4 @@ const react = [
     },
 ];
 
-export default { rules, configs: { recommended, react } };
+export default { meta, rules, configs: { recommended, react } };

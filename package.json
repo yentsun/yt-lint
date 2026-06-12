@@ -24,6 +24,17 @@
   ],
   "author": "Maksim Korinets",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yentsun/yt-lint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yentsun/yt-lint/issues"
+  },
+  "homepage": "https://github.com/yentsun/yt-lint#readme",
+  "engines": {
+    "node": ">=20"
+  },
   "peerDependencies": {
     "eslint": ">=9.0.0",
     "eslint-plugin-react": ">=7.0.0",
